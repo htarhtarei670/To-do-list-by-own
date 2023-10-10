@@ -38,3 +38,10 @@ Currently, two official plugins are available:
     setUserTask(deleteTodo);
   };
 
+// todoList =
+//   category !== "all"
+//     ? userTasks.filter((todo) => todo.category === category)
+//     : userTasks
+    
+// setFilterTasks(todoList);
+

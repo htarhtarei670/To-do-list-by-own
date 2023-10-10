@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const AddToDo = ({ onGetTasks }) => {
-  const [tasks, setTasks] = useState();
   const [input, setInput] = useState("");
 
  
@@ -9,16 +8,13 @@ const AddToDo = ({ onGetTasks }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    //to sent tasks data to todo js
-    if (tasks) {
-      onGetTasks(tasks);
-    }
-
     //   take user input data tasks
-    setTasks(input);
-
-    //  to delete input value
-    setInput("");
+    setInput(input);
+    //to sent tasks data to todo js
+    if (input.length !== 0) {
+      onGetTasks(input);
+    }
+    
   };
 
   return (

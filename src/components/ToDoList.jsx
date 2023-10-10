@@ -13,8 +13,8 @@ const ToDoList = ({ todo, onEditTodo, onDeleteTodo, onFliterTodoList }) => {
   }
 
   const clickHandler = () => {
-    onFliterTodoList(!todo.isCheck, todo.id);
-    todo.isCheck=!todo.isCheck
+     onFliterTodoList(!todo.isCheck, todo.id);
+     todo.isCheck = !todo.isCheck;
 
   };
 
