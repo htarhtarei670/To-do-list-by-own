@@ -21,8 +21,6 @@ const AddToDo = ({ onGetTasks }) => {
     setInput("");
   };
 
-
-
   return (
     <div className="mt-5">
       <form
@@ -40,7 +38,6 @@ const AddToDo = ({ onGetTasks }) => {
           }}
         />
         <button
-          type="submit"
           className=" bg-orange-600 text-white py-3 px-8 rounded-full"
         >
           Add

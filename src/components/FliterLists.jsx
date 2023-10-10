@@ -1,35 +1,40 @@
 // import { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
-const FliterLists = ({ todos }) => {
-  const [category, setCategory] = useState('all')
-  // const [fliterTodo,setFliterTodo]=useState([])
+const FliterLists = ({ todos, onFliterToDo, onClearAllTodo }) => {
+  const [category, setCategory] = useState("all");
 
   const categories = [
     { name: "all", label: "All" },
-    { name: "pending", label: "pending" },
-    { name: 'completed', label: "Completed" }
-  ]  
+    { name: "pending", label: "Pending" },
+    { name: "completed", label: "Completed" },
+  ];
 
-  // if (todos.length !== 0) {
-  //   const tasks=todos
-  //   if (todos.categery !== 'all') {
-      
-  //   }
-  
-  //   useEffect(() => {
-  //     getFliterData()
-  //   },[category])
-  // }
+  // getCategoryTodo
+  useEffect(() => {
+    if (todos.length !== 0) {
+      onFliterToDo(category);
+    }
+  }, [category]);
 
   return (
     <>
       <div className="my-4">
-        <ul className="flex justify-between mx-4 items-center">
-          {
-            categories.map(cat => <li key={cat.name} onClick={()=>{setCategory(cat.name)}}>{cat.label}</li>)
-          }
-          <li  id='clearAll'>
+        <ul className="flex justify-between mx-4 items-center cursor-pointer">
+          {categories.map((cat) => (
+            <li
+              className={cat.name === category ? "text-orange-500" : ""}
+              key={cat.name}
+              id={cat.name}
+              onClick={() => {
+                setCategory(cat.name);
+              }}
+            >
+              {cat.label}
+            </li>
+          ))}
+          <li id="clearAll" onClick={() => onClearAllTodo(todos)}>
             <button className="bg-orange-500 p-2 text-white rounded-md">
               Clear All
             </button>
@@ -39,6 +44,6 @@ const FliterLists = ({ todos }) => {
       <hr />
     </>
   );
-}
+};
 
 export default FliterLists
